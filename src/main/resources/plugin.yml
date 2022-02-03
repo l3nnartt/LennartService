@@ -1,0 +1,10 @@
+name: LennartService
+author: L3nnart_
+version: 1
+main: com.github.l3nnartt.LennartService
+
+commands:
+  build:
+    description: Globalen Baumodus aktivieren/deaktivieren
+  fly:
+    description: Fly aktivieren/deaktivieren
