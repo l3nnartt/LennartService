@@ -19,12 +19,12 @@ public class LennartService extends JavaPlugin {
     }
 
     @Override
-    public void onDisable() {
+    public void onLoad() {
 
     }
 
     @Override
-    public void onLoad() {
+    public void onDisable() {
 
     }
 

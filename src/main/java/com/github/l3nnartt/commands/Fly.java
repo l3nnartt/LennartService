@@ -9,8 +9,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
 
-import java.util.Arrays;
-
 public class Fly implements CommandExecutor {
 
     private LennartService plugin;
@@ -25,12 +23,12 @@ public class Fly implements CommandExecutor {
             return true;
         }
 
-        if(strings.length == 0) {
-            Player player = (Player) commandSender;
+        Player player = (Player) commandSender;
+
+        if (strings.length == 0) {
             setFly(player, player);
             return true;
         } else {
-            Player player = (Player) commandSender;
             Player target = Bukkit.getPlayer(strings[0]);
             if (target == null) {
                 player.sendMessage("Der Spieler §6" + strings[0] + "§r ist nicht Online oder existiert nicht!");

@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class Build implements CommandExecutor {
+
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if(!(commandSender instanceof Player)){
@@ -24,4 +25,5 @@ public class Build implements CommandExecutor {
             player.sendMessage("Baumodus: " + PlayerListener.build);
         } return true;
     }
+
 }
