@@ -10,7 +10,7 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 
 public class PlayerListener implements Listener {
 
-    public static boolean build;
+    private boolean build;
 
     @EventHandler
     public void onWeatherChange(WeatherChangeEvent event) {
@@ -37,4 +37,11 @@ public class PlayerListener implements Listener {
         event.setCancelled(true);
     }
 
+    public void setBuild(boolean build) {
+        this.build = build;
+    }
+
+    public boolean isBuild() {
+        return build;
+    }
 }

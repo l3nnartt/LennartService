@@ -1,12 +1,17 @@
 package com.github.l3nnartt.commands;
 
-import com.github.l3nnartt.listener.PlayerListener;
+import com.github.l3nnartt.LennartService;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class Build implements CommandExecutor {
+
+    private LennartService plugin;
+    public Build(LennartService plugin) {
+        this.plugin = plugin;
+    }
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
@@ -21,8 +26,8 @@ public class Build implements CommandExecutor {
             player.sendMessage("Unzureichende Rechte!");
             return true;
         } else {
-            PlayerListener.build = ! PlayerListener.build;
-            player.sendMessage("Baumodus: " + PlayerListener.build);
+            plugin.getPlayerListener().setBuild(!plugin.getPlayerListener().isBuild());
+            player.sendMessage("Baumodus: " + plugin.getPlayerListener().isBuild());
         } return true;
     }
 

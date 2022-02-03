@@ -9,12 +9,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class LennartService extends JavaPlugin {
 
+    private PlayerListener playerListener;
+
     @Override
     public void onEnable() {
+        playerListener = new PlayerListener();
         System.out.println("Plugin enabled");
-        Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
+        Bukkit.getPluginManager().registerEvents(playerListener, this);
         Bukkit.getPluginManager().registerEvents(new PlayerJoin(), this);
-        getCommand("build").setExecutor(new Build());
+        getCommand("build").setExecutor(new Build(this));
         getCommand("fly").setExecutor(new Fly(this));
     }
 
@@ -26,6 +29,10 @@ public class LennartService extends JavaPlugin {
     @Override
     public void onDisable() {
 
+    }
+
+    public PlayerListener getPlayerListener() {
+        return playerListener;
     }
 
 }
